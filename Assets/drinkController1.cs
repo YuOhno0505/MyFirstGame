@@ -5,10 +5,14 @@ using UnityEngine;
 public class drinkController : MonoBehaviour
 {
     GameObject Kart;
+    GameObject mainCamera;
+
     // Start is called before the first frame update
     void Start()
     {
         this.Kart = GameObject.Find("Kart");
+
+        this.mainCamera = Camera.main.gameObject;
     }
 
     // Update is called once per frame
@@ -28,6 +32,8 @@ public class drinkController : MonoBehaviour
         if(d < r1 + r2)
         {
             //あたったときの処理
+            mainCamera.AddComponent <Blur>();
+
             Destroy(gameObject);
         }
 
