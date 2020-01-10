@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
-public class drinkController : MonoBehaviour
+public class DrinkController1 : MonoBehaviour
 {
     GameObject Kart;
     GameObject mainCamera;
 
-    // Start is called before the first frame update
-    void Start()
+// Start is called before the first frame update
+void Start()
     {
         this.Kart = GameObject.Find("Kart");
 
@@ -29,13 +30,19 @@ public class drinkController : MonoBehaviour
         float r1 = 1.5f;
         float r2 = 1.0f;
 
-        if(d < r1 + r2)
+        int i = 0;
+
+        if (d < r1 + r2)
         {
             //あたったときの処理
-            mainCamera.AddComponent <Blur>();
+        
+            if (i == 0) {
+                mainCamera.AddComponent<Blur>();
+
+                i++;
+            }
 
             Destroy(gameObject);
         }
-
     }
 }
